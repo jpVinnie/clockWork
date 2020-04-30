@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Beautiful Clock Display</title>
+        <style>
+body
+{
+    background:pink;
+}
+
+.dclock
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); 
+    color: royalblue;
+    font-size: 55px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 7px;
+}
+        </style>
+    </head>
+    <body id = "Beautiful Clock Display" class = "dclock" onload = "showTime()">
+        <script>
+
+function showTime()
+{
+    //Basic time 
+    var date = new Date();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+
+    if (h == 0)
+    {
+        h = 12;
+    }
+    if (h > 12)
+    {
+        h = h - 12;
+    }
+                            
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+                            
+    var time = h + ":" + m + ":" + s;
+    document.getElementById("Beautiful Clock Display").innerText = time;
+    document.getElementById("Beautiful Clock Display").textContent = time;
+                            
+    setTimeout(showTime, 1000);
+                            
+}
+                            
+showTime();
+
+        </script>
+    </body>
+</html>
